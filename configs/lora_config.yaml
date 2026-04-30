@@ -1,0 +1,51 @@
+# LoRA Fine-tuning Configuration for Stable Diffusion
+
+# Model Configuration
+pretrained_model_name_or_path: "CompVis/stable-diffusion-v1-4"  # Can also use "runwayml/stable-diffusion-v1-5"
+
+# Data Configuration
+instance_data_dir: "data/lora_training/Technoblade"  # Path to your training images
+instance_prompt: "sks technoblade"  # Unique identifier: [name], [style], [object], etc.
+class_data_dir: null  # Optional: path to regularization images (e.g., "data/regularization_people")
+class_prompt: "a photo of person"  # Used for regularization to prevent overfitting
+
+# Training Configuration
+output_dir: "lora_weights"  # Where to save LoRA weights
+num_train_epochs: 150  # Total epochs to train
+per_device_train_batch_size: 1  # Batch size (reduce if OOM)
+gradient_accumulation_steps: 1  # Accumulate gradients (simulate larger batch)
+max_train_steps: 3300  # Override num_train_epochs if set
+learning_rate: 1.0e-4  # Learning rate (1e-4 is standard for LoRA)
+lr_scheduler: "cosine"  # Options: "constant", "linear", "cosine"
+adam_epsilon: 1.0e-08  # Adam epsilon
+adam_weight_decay: 1.0e-2  # Weight decay
+max_grad_norm: 1.0  # Gradient clipping
+
+# LoRA Configuration
+lora_rank: 32  # LoRA rank (4-16 typical, higher = more capacity but slower)
+lora_alpha: 64.0  # LoRA alpha (typically 2x rank)
+lora_dropout: 0.1  # Dropout in LoRA layers
+lora_text_encoder: true  # Whether to apply LoRA to text encoder
+
+# Optimization
+mixed_precision: "fp16"  # Options: "no", "fp16", "bf16" (requires GPU support)
+use_gradient_checkpointing: true  # Enable for lower memory usage (slower training)
+enable_attention_slicing: true  # Enable for lower memory usage (slower generation)
+
+# Logging and Checkpointing
+logging_dir: "logs"  # TensorBoard logs directory
+logging_steps: 10  # Log every N steps
+save_steps: 100  # Save checkpoint every N steps
+save_total_limit: 5  # Keep only last N checkpoints
+resume_from_checkpoint: null  # Path to checkpoint to resume from
+
+# Data Processing
+image_size: 512  # Image size (512 standard, 768 for higher quality)
+center_crop: false  # Center crop images
+random_flip: false  # Random flip augmentation
+num_workers: 4  # DataLoader workers (0 for Windows)
+
+# Advanced
+use_xformers_memory_efficient_attention: true  # Use xformers if available (faster)
+set_grads_to_none: true  # Memory optimization
+seed: 42  # Random seed

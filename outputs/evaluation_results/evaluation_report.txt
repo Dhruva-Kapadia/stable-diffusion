@@ -1,0 +1,16 @@
+LoRA Evaluation Report
+======================
+
+Target Concept: Technoblade (sks)
+LoRA Weights: lora_weights/final_lora
+
+Quantitative Metrics (Standard Prompt):
+- CLIP Score (Before):     0.2207
+- CLIP Score (After):      0.2187
+- Aesthetic Score (Before): 0.6296
+- Aesthetic Score (After):  0.0142
+- CLIP Improvement: -0.92%
+
+Qualitative Observations:
+- Prompt Matrix shows concept strength increasing with weight.
+- Imaginative scenarios verify concept persistence across contexts.
