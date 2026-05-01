@@ -6,4 +6,4 @@
 
 # Inference Example:
 
-`python .\scripts\txt2img_lora.py --prompt "front view, neutral pose, minecraft, masterpiece, sks technoblade" --lora_weights "lora_weights\final_lora" --lora_scale 1.0 --model_name "CompVis/stable-diffusion-v1-4"`
+`python .\scripts\txt2img_lora.py --prompt "front view, neutral pose, minecraft, masterpiece, sks technoblade" --lora_weights "lora_weights\final_lora" --lora_scale 0.75 --model_name "CompVis/stable-diffusion-v1-4"`
