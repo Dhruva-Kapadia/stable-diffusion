@@ -1,8 +1,3 @@
-<script type="text/javascript" src="http://mathjax.org"></script>
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({ tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]} });
-</script>
-
 Project Report: Fine-Tuning Stable Diffusion for Custom Target using LoRA
 ==============================================================================
 
